@@ -1,0 +1,21 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: TJ Webb - Developer
+email: webb.tj@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  I'm a developer and a problem solver. PHP and JS developer. Ruby
+  node and R enthusiast. Linux and OSX guy. Terminal dweller. Data
+  fan. Maker of automation things.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://code.webb.tj" # the base hostname & protocol for your site
+twitter_username: webbtj
+github_username:  webbtj
+
+# Build settings
+markdown: kramdown
