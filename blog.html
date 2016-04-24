@@ -1,0 +1,35 @@
+---
+layout: page-list
+permalink: /blog/
+title: Blog
+---
+
+{% for post in site.posts %}
+  <div class="col s12">
+    <div class="list-item">
+      <h3>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+          {{ post.title }}
+        </a>
+      </h3>
+
+      <h6 class="light post-meta">
+        Posted
+        <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
+          {{ post.date | date: "%b %-d, %Y" }}
+        </time>
+      </h6>
+      <p class="light">
+        {{ post.preview }}
+        <a href="{{ post.url | prepend: site.baseurl }}">Read On</a>
+      </p>
+    </div>
+  </div>
+{% endfor %}
+
+<div class="col s12 rss-feed">
+  <p class="light">
+    subscribe
+    <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a>
+  </p>
+</div>

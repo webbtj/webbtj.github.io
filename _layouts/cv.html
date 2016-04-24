@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+<div class="section">
+
+  <div class="row">
+    <div class="col s12 title-section">
+      <h3><span>{{ page.title }}</span></h3>
+    </div>
+
+    <div class="col s12">
+      &nbsp;
+    </div>
+
+    <div class="col s12 l8">
+      {{ content }}
+    </div>
+    {% if page.skills %}
+      <div class="col s12 l4">
+        <h4>Current Tools</h4>
+        <ul class="skills-list">
+          {% for skill in page.skills %}
+            <li>
+              <div class="info lighten">
+                {{ skill.title }}
+                {% if skill.years == 1 %}
+                  <span>{{ skill.years }} year</span>
+                {% else %}
+                  <span>{{ skill.years }} years</span>
+                {% endif %}
+              </div>
+              <div class="bar" style="width:{{ skill.years | times:5 | plus:50 }}%"></div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </div>
+</div>

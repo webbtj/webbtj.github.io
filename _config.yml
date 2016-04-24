@@ -9,13 +9,24 @@
 title: TJ Webb - Developer
 email: webb.tj@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  I'm a developer and a problem solver. PHP and JS developer. Ruby
-  node and R enthusiast. Linux and OSX guy. Terminal dweller. Data
-  fan. Maker of automation things.
+        Hi there! I'm TJ and I'm a developer and a problem solver in Halifax,
+        NS. I build PHP and JS sites and apps in systems like Laravel and
+        WordPress. I dabble a bit in Ruby on Rails and the R stasticial
+        language. I like making automation tools in node, PHP, and sometimes
+        even Bash. I'm a Linux and OSX guy, terminal dweller, data fan, and
+        constant learner&hellip; You may have also noticed I am, in fact, not
+        a designer.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://code.webb.tj" # the base hostname & protocol for your site
 twitter_username: webbtj
 github_username:  webbtj
+linkedin_user: "tj-webb-30529041"
+permalink: pretty
 
 # Build settings
 markdown: kramdown
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path

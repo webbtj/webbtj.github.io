@@ -1,0 +1,32 @@
+---
+layout: page-list
+permalink: /projects/
+title: Projects
+---
+
+{% for project in site.projects reversed %}
+  <div class="col s12">
+    <div class="list-item">
+      <h3>
+        <a class="post-link" href="{{ project.url | prepend: site.baseurl }}">
+          {{ project.title }}
+        </a>
+      </h3>
+
+      <h6 class="light post-meta">
+        Updated
+        <time datetime="{{ project.date | date_to_xmlschema }}" itemprop="datePublished">
+          {{ project.date | date: "%b %-d, %Y" }}
+        </time>
+        {% if project.github %}
+            •
+            <a target="_blank" href="{{ project.github }}">view on github</a>
+        {% endif %}
+      </h6>
+      <p class="light">
+        {{ project.preview }}
+        <a href="{{ project.url | prepend: site.baseurl }}">Read On</a>
+      </p>
+    </div>
+  </div>
+{% endfor %}
