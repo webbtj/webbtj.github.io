@@ -2,7 +2,7 @@
 layout: cv
 title: Curiculum Vitae
 permalink: /cv/
-skills:
+<!-- skills:
 - title: PHP
   years: 10
 - title: JS
@@ -34,10 +34,18 @@ skills:
 - title: Drupal
   years: 1
 - title: Django
-  years: 0.5
+  years: 0.5 -->
 ---
 
-#### Yesterday
+Hi, I'm TJ, and I'm a programmer. I currently work with tools varying from PHP,
+nginx, Apache, MySQL, and JavaScript to Bash Scripting, PostgreSQL, GraphQL,
+Linux server management, data science/analysis (R code), and game development
+(Unity - C#). That being said, I've had a decade plus career that's had me
+working with VBA, VB.NET, Microsoft SQL Server, C#, ASP.NET, Python, NodeJS,
+Django, CNC machines, and probably some other more obscure stuff stashed in the
+back of my mind.
+
+#### Background
 I studied Web Development at NSCC, graduating in 2005 with the highest
 aggregate with training in ASP.NET, VB.NET, Java, Flash, Director, JavaScript,
 CSS, XHTML, and PHP.
@@ -54,33 +62,29 @@ software in C#, some VBA scripting, as well as work with some of the CNC
 machines. This was also where my love of automation began and I started to
 develop desktop software to automate some of my more *mundane* tasks.
 
-#### Today
+#### Current Work
 In late 2010 I moved on from both Kohltech and freelancing to join the wonderful
-team at Norex. I started mainly on WordPress development. I'd switched from
-Windows to OSX and Linux, .NET to PHP, and desktop to web as my nine-to-five
-literally overnight.
+team at Code + Mortar (then, Norex). I started mainly on WordPress development.
+I'd switched from Windows to OSX and Linux, .NET to PHP, and desktop to web as
+my nine-to-five literally overnight.
 
-Over the years at Norex I've worked up to the role of Lead Developer, as well as
-served as CTO for Pursu.it, a crowdfunding platform I'd developed with the
-Norex management team.
+Over the years with Code + Mortar I've worn many hats, starting as a Developer,
+working up to Senior Developer, Lead Developer, Project Manager and now,
+Director of Product and Innovation (back stopping as a senior level dev). I've
+also served as CTO of Pursu.it, an offshoot crowdfunding NFP for competitive
+and Olympic level athletes founded with some of the Norex management team at the
+time.
 
-Today my role is very much a senior one. I lead initiatives in expanding our
-technology stack(s), lead large scale client projects in a hybrid
-developer/team lead/project manger role. I work with management and producers to
-help develop and foster learning plans, and am heavily involved with our hiring
-and co-op program.
+My first few years with Code + Mortar were a lot of WordPress development;
+building custom themes, implementing existing plugins, and writing some of my
+own. Since then I've move onto things like MVC frameworks (Laravel, Rails),
+server management, configuration, and lots of automation tools, both custom
+builds and implementing existing solutions.
 
-I'm a learner. I love learning and figuring out new things. I've recently
-completed a year long Coursera course in Data Science, I've been learning more
-about building command line tools, and I just picked up Jekyll, Liquid,
-Materialize, and SCSS to rebuild this site in a few evenings (pure static HTML
-goodness).
-
-#### Tomorrow
-Having the opportunity to work with team members on their learning plans, being
-able to be involved in our co-op program (working with both NSCC and Dalhousie
-University), being given the opportunity to lead newer developers and share my
-experiences. As much as I love building, creating, and problem solving, I
-someday see myself moving to education. I want to continue to put more of my
-time towards fostering the next generation of programmers. But, not quite yet,
-I still have a lot of code I want to write.
+One of my biggest career motivations is education. I am a life long learner,
+often taking courses in subject from Data Science (R programming) to Unity game
+development (C#) and finding ways to bring these new tools into my work
+projects. I'm also dedicated to the education and learning of new programmers
+and students. I've spoken with post-secondary classes on working in the field,
+and have hired and worked with many current students and recent grads as co-ops,
+part time, and full time developers.
