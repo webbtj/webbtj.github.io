@@ -2,6 +2,7 @@
 layout: page
 title: About
 permalink: /about/
+hidden: true
 ---
 
 Hi, I'm TJ Webb, and I'm a web developer in Nova Scotia. My focus of the last
