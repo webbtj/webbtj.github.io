@@ -25,7 +25,7 @@ read -p "Please enter your Maxmind license key: " LICENSE_KEY
 
 # Install packages
 apt-get update
-apt install -y nginx php-fpm supervisor php-ctype php-iconv libpcre3 php-simplexml php-tokenizer php-xml wget openssl zip unzip php-zip
+apt install -y nginx php-fpm supervisor php-ctype php-iconv libpcre3 php-simplexml php-tokenizer php-xml wget openssl zip unzip php-zip nodejs npm
 rm -rf /var/lib/apt/lists/*
 apt clean
 add-apt-repository ppa:ondrej/php
@@ -68,6 +68,13 @@ rm -rf /geoip_download
 # Composer install
 cd /var/www/html
 sudo -u www-data composer install
+
+# Install npm
+npm install
+npm run build
+
+# Overwrite .env file
+php /maxmind/config/dotenv.php > /var/www/html/.env
 
 # Restart services
 service nginx restart
