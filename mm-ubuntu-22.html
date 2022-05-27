@@ -58,7 +58,7 @@ chown -R www-data:www-data /run/php
 mkdir -p /var/www/private/geo
 
 # Download and instal GeoLite2 City DB
-wget "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key={$LICENSE_KEY}&suffix=tar.gz" -O /geoip_download
+wget "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=$LICENSE_KEY&suffix=tar.gz" -O /geoip_download
 tar -xf /geoip_download -C /var/www/private
 chown -R www-data:www-data /var/www/private
 mv /var/www/private/GeoLite2-City_*/* /var/www/private/geo
