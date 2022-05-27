@@ -1,0 +1,29 @@
+#!/bin/bash
+
+UBUNTU_VERSION="22"
+
+while getopts v: flag
+do
+    case "${flag}" in
+        v) UBUNTU_VERSION=${OPTARG};;
+    esac
+done
+
+echo $UBUNTU_VERSION
+
+if [ $UBUNTU_VERSION -eq "22" ]; then
+    curl https://gist.githubusercontent.com/webbtj/f7144c4e609302dc410301df2dad4e84/raw/8a1ace91d088f49fd45274aa3c32dda139a899b4/test.sh > /usr/local/bin/webbtj-init
+elif [ $UBUNTU_VERSION -eq "20" ]; then
+    curl https://gist.githubusercontent.com/webbtj/f7144c4e609302dc410301df2dad4e84/raw/8a1ace91d088f49fd45274aa3c32dda139a899b4/test.sh > /usr/local/bin/webbtj-init
+elif [ $UBUNTU_VERSION -eq "18" ]; then
+    curl https://gist.githubusercontent.com/webbtj/f7144c4e609302dc410301df2dad4e84/raw/8a1ace91d088f49fd45274aa3c32dda139a899b4/test.sh > /usr/local/bin/webbtj-init
+else
+    echo "Please only pass a valid Ubuntu version (22, 20, or 18) or omit the -v flag for the default install (22)"
+    exit
+fi
+
+
+chmod +x /usr/local/bin/webbtj-init
+
+echo "Initialization tool installed."
+echo "Please run webbtj-init"
