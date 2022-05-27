@@ -14,8 +14,6 @@ do
     esac
 done
 
-echo $UBUNTU_VERSION
-
 if [ $UBUNTU_VERSION -eq "22" ]; then
     curl https://code.webb.tj/mm-ubuntu-22 > /usr/local/bin/webbtj-init
 elif [ $UBUNTU_VERSION -eq "20" ]; then
