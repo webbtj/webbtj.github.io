@@ -30,12 +30,30 @@ apt install software-properties-common
 add-apt-repository ppa:ondrej/php -y
 apt update
 apt upgrade -y
-apt install -y nginx php8.1 php8.1-fpm supervisor php8.1-ctype php8.1-iconv libpcre3 php8.1-simplexml php8.1-tokenizer php8.1-xml wget openssl zip unzip php8.1-zip nodejs npm php8.1-curl
+apt install -y nginx \
+                php8.1 \
+                php8.1-fpm \
+                php8.1-ctype \
+                php8.1-iconv \
+                php8.1-simplexml \
+                php8.1-tokenizer \
+                php8.1-xml \
+                php8.1-zip \
+                php8.1-curl \
+                libpcre3 \
+                supervisor \
+                wget \
+                openssl \
+                zip \
+                unzip \
+                nodejs \
+                npm
 rm -rf /var/lib/apt/lists/*
 apt clean
 
 # NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+# make nvm ready to use without a new terminal session
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
