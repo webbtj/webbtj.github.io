@@ -34,6 +34,11 @@ apt install -y nginx php8.1 php8.1-fpm supervisor php8.1-ctype php8.1-iconv libp
 rm -rf /var/lib/apt/lists/*
 apt clean
 
+# Update Node
+npm cache clean -f
+npm install -g n
+n 12.22.9
+
 # Get Code Repo
 rm -rf /var/www/html/*
 cd /
