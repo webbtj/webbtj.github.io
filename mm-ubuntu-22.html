@@ -69,12 +69,18 @@ rm -rf /geoip_download
 cd /var/www/html
 sudo -u www-data composer install
 
+# Fix the PHP Unit Env (installing symfony/framework-bundle modified this file)
+sed -i -e 's/<env name="APP_ENV" value="dev"\/>/<env name="APP_ENV" value="test"\/>/g' /var/www/html/phpunit.xml.dist
+
 # Install npm
 npm install
 npm run build
 
 # Overwrite .env file
 php /maxmind/config/dotenv.php > /var/www/html/.env
+
+# Cleanup
+rm -rf /maxmind
 
 # Restart services
 service nginx restart
