@@ -34,10 +34,12 @@ apt install -y nginx php8.1 php8.1-fpm supervisor php8.1-ctype php8.1-iconv libp
 rm -rf /var/lib/apt/lists/*
 apt clean
 
-# Update Node
-npm cache clean -f
-npm install -g n
-n 12.22.9
+# NVM
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+nvm install 12
 
 # Get Code Repo
 rm -rf /var/www/html/*
@@ -80,7 +82,8 @@ sudo -u www-data composer install
 # Fix the PHP Unit Env (installing symfony/framework-bundle modified this file)
 sed -i -e 's/<env name="APP_ENV" value="dev"\/>/<env name="APP_ENV" value="test"\/>/g' /var/www/html/phpunit.xml.dist
 
-# Install npm
+# npm install
+nvm use 12
 npm install
 npm run build
 
