@@ -7,6 +7,7 @@ hidden: true
 
 UBUNTU_VERSION="22"
 
+# Determine the version of Ubuntu the user is using
 while getopts v: flag
 do
     case "${flag}" in
@@ -14,18 +15,20 @@ do
     esac
 done
 
+# Download the appropriate script and install it in /usr/local/bin
 if [ $UBUNTU_VERSION -eq "22" ]; then
     curl https://code.webb.tj/mm-ubuntu-22 > /usr/local/bin/webbtj-init
 elif [ $UBUNTU_VERSION -eq "20" ]; then
     curl https://code.webb.tj/mm-ubuntu-20 > /usr/local/bin/webbtj-init
 elif [ $UBUNTU_VERSION -eq "18" ]; then
-    curl https://code.webb.tj/mm-ubuntu-22 > /usr/local/bin/webbtj-init
+    # the v20 version also works for v18
+    curl https://code.webb.tj/mm-ubuntu-20 > /usr/local/bin/webbtj-init
 else
     echo "Please only pass a valid Ubuntu version (22, 20, or 18) or omit the -v flag for the default install (22)."
     exit
 fi
 
-
+# Make the script executable
 chmod +x /usr/local/bin/webbtj-init
 
 echo "Initialization tool installed."
