@@ -25,7 +25,22 @@ read -p "Please enter your Maxmind license key: " LICENSE_KEY
 
 # Install packages
 apt-get update
-apt install -y nginx php-fpm supervisor php-ctype php-iconv libpcre3 php-simplexml php-tokenizer php-xml wget openssl zip unzip php-zip nodejs npm
+apt install -y nginx \
+                php-fpm \
+                php-ctype \
+                php-iconv \
+                php-simplexml \
+                php-tokenizer \
+                php-xml \
+                php-zip \
+                libpcre3 \
+                supervisor \
+                wget \
+                openssl \
+                zip \
+                unzip \
+                nodejs \
+                npm
 rm -rf /var/lib/apt/lists/*
 apt clean
 add-apt-repository ppa:ondrej/php
