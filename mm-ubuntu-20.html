@@ -1,0 +1,87 @@
+---
+permalink: mm-ubuntu-20
+hidden: true
+---
+
+#!/bin/sh
+
+# Make sure the user has GitHub access
+while true; do
+    read -p "Before you continue, do you have access to this repo: github.com:webbtj/maxmind.git? (y/n) Press h for help: " yn
+
+    case $yn in
+        [yY] ) echo "Proceeding...";
+            break;;
+        [nN] ) echo "Exiting...";
+            exit;;
+        [hH] ) echo "webbtj/maxmind is a private repo.";
+                echo "Before you can start this script you need to add your public ssh key to your GitHub user and that user must be shared on the repo.";
+                echo "If you've already dont this, press Y. If not, press N to exit the script and rerun once you have added your ssh key.";;
+        * ) echo "Invalid response.";;
+    esac
+done
+
+read -p "Please enter your Maxmind license key: " LICENSE_KEY
+
+# Install packages
+apt update
+apt upgrade -y
+apt install software-properties-common
+add-apt-repository ppa:ondrej/php -y
+apt update
+apt upgrade -y
+apt install -y nginx php8.1 php8.1-fpm supervisor php8.1-ctype php8.1-iconv libpcre3 php8.1-simplexml php8.1-tokenizer php8.1-xml wget openssl zip unzip php8.1-zip nodejs npm php8.1-curl
+rm -rf /var/lib/apt/lists/*
+apt clean
+
+# Get Code Repo
+rm -rf /var/www/html/*
+cd /
+git clone git@github.com:webbtj/maxmind.git
+mv /maxmind/app/* /var/www/html
+
+# Install composer
+/maxmind/config/composer.sh
+mv composer.phar /usr/local/bin/composer
+
+# Copy system configs
+rm -rf /etc/nginx/sites-available/default
+cp /maxmind/config/default /etc/nginx/sites-available/default
+sed -i -e 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' /etc/php/8.1/fpm/php.ini
+rm -rf /etc/supervisor/supervisord.conf
+cp /maxmind/config/supervisord.conf /etc/supervisor/supervisord.conf
+
+# Create .env file
+php /maxmind/config/dotenv.php > /var/www/html/.env
+
+# Create webroot dirs and set permissions
+mkdir -p /run/php
+chown -R www-data:www-data /var/www/html
+chown -R www-data:www-data /run/php
+mkdir -p /var/www/private/geo
+
+# Download and instal GeoLite2 City DB
+wget "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-City&license_key=$LICENSE_KEY&suffix=tar.gz" -O /geoip_download
+tar -xf /geoip_download -C /var/www/private
+chown -R www-data:www-data /var/www/private
+mv /var/www/private/GeoLite2-City_*/* /var/www/private/geo
+rm -rf /var/www/private/GeoLite2-City_*
+rm -rf /geoip_download
+
+# Composer install
+cd /var/www/html
+sudo -u www-data composer install
+
+# Fix the PHP Unit Env (installing symfony/framework-bundle modified this file)
+sed -i -e 's/<env name="APP_ENV" value="dev"\/>/<env name="APP_ENV" value="test"\/>/g' /var/www/html/phpunit.xml.dist
+
+# Install npm
+npm install
+npm run build
+
+# Overwrite .env file
+php /maxmind/config/dotenv.php > /var/www/html/.env
+
+# Restart services
+service nginx restart
+service php8.1-fpm restart
