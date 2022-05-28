@@ -79,9 +79,6 @@ npm run build
 # Overwrite .env file
 php /maxmind/config/dotenv.php > /var/www/html/.env
 
-# Cleanup
-rm -rf /maxmind
-
 # Restart services
 service nginx restart
 service php8.1-fpm restart
