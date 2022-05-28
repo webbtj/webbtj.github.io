@@ -21,12 +21,12 @@ elif [ $UBUNTU_VERSION -eq "20" ]; then
 elif [ $UBUNTU_VERSION -eq "18" ]; then
     curl https://code.webb.tj/mm-ubuntu-22 > /usr/local/bin/webbtj-init
 else
-    echo "Please only pass a valid Ubuntu version (22, 20, or 18) or omit the -v flag for the default install (22)"
+    echo "\033[0;41mPlease only pass a valid Ubuntu version (22, 20, or 18) or omit the -v flag for the default install (22).\033[m"
     exit
 fi
 
 
 chmod +x /usr/local/bin/webbtj-init
 
-echo "Initialization tool installed."
-echo "Please run webbtj-init"
+echo "\033[0;42mInitialization tool installed.\033[m"
+echo "Please run \033[0;33mwebbtj-init\033[m"
